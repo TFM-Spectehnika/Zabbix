@@ -1,5 +1,5 @@
 #Set variables
-$RemoteZabbixPath = '\\srv-db1\config.1c$\zabbix\zabbix_work\'
+$RemoteZabbixPath = '\\net_share\'
 $LocalZabbixPath = 'C:\Zabbix\'
 $LocalZabbixConf = 'C:\Zabbix\zabbix_agentd.conf'
 $Zabbix = 'Zabbix Agent'
@@ -28,7 +28,7 @@ If (!(Test-Path -Path $LocalZabbixPath)) {
     Exit
     }
 else {
-    $Rem = Get-FileHash '\\srv-db1\config.1c$\zabbix\zabbix_work\zabbix_agentd.conf' -Algorithm SHA256 
+    $Rem = Get-FileHash '\\net_share\zabbix_agentd.conf' -Algorithm SHA256 
     $loc = Get-FileHash 'C:\Zabbix\zabbix_agentd.conf' -Algorithm SHA256
     If ($Rem.Hash -ne $loc.Hash) {
         Stop_Zabbix
