@@ -34,7 +34,6 @@ else {
         Stop_Zabbix
         Remove-Item -Path $LocalZabbixPath -Force -Recurse
         Copy-Item $RemoteZabbixPath $LocalZabbixPath -Recurse -Force
-        Install_zabbix
         Run_Zabbix
         Exit
         }
