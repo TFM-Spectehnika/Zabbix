@@ -20,7 +20,7 @@ function Stop_Zabbix {
     }
 
 
-#Check path exist and changes in .conf 
+#Check path exist and changes in .conf, if conf file changed zabbix reconfigured when server restart.
 If (!(Test-Path -Path $LocalZabbixPath)) {
     Copy-Item $RemoteZabbixPath $LocalZabbixPath -Recurse -Force
     Install_zabbix
